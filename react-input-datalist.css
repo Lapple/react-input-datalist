@@ -1,0 +1,48 @@
+.suggest {
+    display: inline-block;
+    position: relative;
+}
+
+.suggest__input {
+    display: block;
+    width: 100%;
+}
+
+.suggest__datalist {
+    position: absolute;
+    top: 100%;
+    top: calc(100% + 2px);
+    left: 0;
+    z-index: 1;
+    width: 100%;
+
+    background: #fff;
+    background-clip: padding-box;
+    border: 1px solid rgba(0, 0, 0, 0.15);
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    transform: translate3d(0, 0, 0);
+}
+
+.suggest__datalist:empty {
+    display: none;
+}
+
+.suggest__option {
+    padding: 0.3em 0.5em;
+    overflow: hidden;
+
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    line-height: 1;
+    cursor: pointer;
+}
+
+.suggest__option:hover {
+    background: #ebf2fc;
+}
+
+.suggest__option_hl,
+.suggest__option_hl:hover {
+    background: #3879d9;
+    color: #fff;
+}
