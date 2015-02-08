@@ -101,10 +101,10 @@ module.exports = React.createClass({
         if (e.key === 'Enter') {
             if (isHighlighted) {
                 this.props.onChange(this.options()[s.highlighted]);
+                this.props.onEnter(e);
             }
 
             this.resetState();
-            this.props.onEnter(e);
 
         } else if (e.key === 'Tab' && isHighlighted) {
             this.props.onChange(this.options()[s.highlighted]);
