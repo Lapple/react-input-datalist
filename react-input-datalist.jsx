@@ -10,6 +10,7 @@ module.exports = React.createClass({
         datalist: React.PropTypes.array,
         onEnter: React.PropTypes.func,
         className: React.PropTypes.string,
+        inputClassName: React.PropTypes.string,
         minLength: React.PropTypes.number,
         predicate: React.PropTypes.func
     },
@@ -19,6 +20,7 @@ module.exports = React.createClass({
             datalist: [],
             minLength: 1,
             className: '',
+            inputClassName: '',
             onEnter: noop,
             predicate: contains
         };
@@ -28,7 +30,7 @@ module.exports = React.createClass({
             <input
                 type='text'
                 {...this.props}
-                className='suggest__input'
+                className={'suggest__input ' + this.props.inputClassName}
                 onChange={ this._onChange }
                 onKeyDown={ this._onKeyDown }
                 onBlur={ this._onBlur } />
