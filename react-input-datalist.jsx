@@ -12,6 +12,7 @@ module.exports = React.createClass({
         className: React.PropTypes.string,
         inputClassName: React.PropTypes.string,
         minLength: React.PropTypes.number,
+        maxOptions: React.PropTypes.number,
         predicate: React.PropTypes.func
     },
     getInitialState: getInitialState,
@@ -19,6 +20,7 @@ module.exports = React.createClass({
         return {
             datalist: [],
             minLength: 1,
+            maxOptions: 5,
             className: '',
             inputClassName: '',
             onEnter: noop,
@@ -67,9 +69,10 @@ module.exports = React.createClass({
         var predicate = this.props.predicate;
         var value = this.props.value;
         var datalist = this.props.datalist;
+        var maxOptions = this.props.maxOptions;
 
         if (value.length >= this.props.minLength) {
-            var matches = datalist.filter(containsValue).slice(0, 5);
+            var matches = datalist.filter(containsValue).slice(0, maxOptions);
 
             // When `matches` contain only the entered `value` itself.
             if (matches.length === 1 && matches[0] === value) {

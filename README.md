@@ -52,6 +52,10 @@ Callback that will be fired when Enter key is pressed, receives `event` object a
 
 Minimum value length after which suggestions list is shown.
 
+#### props.maxOptions
+
+Maximum number of suggestions shown in the dropdown. Defaults to 5.
+
 #### props.predicate
 
 Predicate function that decides which suggestions match the current value. Receives suggestion text as first argument and current value as second. Defaults to:
