@@ -9,7 +9,7 @@ var BROWSERS = [
     'Internet Explorer'
 ];
 
-var Input = require('../react-input-datalist.jsx');
+var Input = require('..');
 var input = React.createFactory(Input);
 
 var App = React.createClass({

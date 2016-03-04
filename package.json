@@ -2,7 +2,7 @@
   "name": "react-input-datalist",
   "version": "3.0.1",
   "description": "HTML5 input/datalist combination component",
-  "main": "react-input-datalist.jsx",
+  "main": "react-input-datalist.js",
   "author": {
     "name": "Aziz Yuldoshev",
     "email": "yuldoshev.aziz@gmail.com",
@@ -14,8 +14,7 @@
   },
   "license": "MIT",
   "dependencies": {
-    "react": "^0.14.0",
-    "reactify": "^1.1.1"
+    "react": "^0.14.0"
   },
   "devDependencies": {
     "http-server": "^0.7.4",
@@ -28,10 +27,5 @@
   ],
   "scripts": {
     "example": "watchify example/app.js -o example/app.compiled.js -v & http-server . & wait"
-  },
-  "browserify": {
-    "transform": [
-      "reactify"
-    ]
   }
 }

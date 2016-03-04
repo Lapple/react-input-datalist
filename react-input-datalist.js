@@ -1,4 +1,5 @@
 var React = require('react');
+var D = React.DOM;
 
 var DEFAULT_HIGHLIGHTED_INDEX = -1;
 var NO_RESULTS = [];
@@ -28,18 +29,22 @@ module.exports = React.createClass({
         };
     },
     render: function() {
-        return <div className={ 'suggest ' + this.props.className }>
-            <input
-                type='text'
-                {...this.props}
-                className={'suggest__input ' + this.props.inputClassName}
-                onChange={ this._onChange }
-                onKeyDown={ this._onKeyDown }
-                onBlur={ this._onBlur } />
-            <div className='suggest__datalist'>
-                { this.options().map(this.renderOption) }
-            </div>
-        </div>;
+        return D.div({ className: 'suggest ' + this.props.className },
+            D.input(
+                merge(
+                    merge({ type: 'text' }, this.props),
+                    {
+                        className: 'suggest__input' + this.props.inputClassName,
+                        onChange: this._onChange,
+                        onKeyDown: this._onKeyDown,
+                        onBlur: this._onBlur
+                    }
+                )
+            ),
+            D.div({ className: 'suggest__datalist' },
+                this.options().map(this.renderOption)
+            )
+        );
     },
     renderOption: function(option, index) {
         var p = this.props;
@@ -55,9 +60,9 @@ module.exports = React.createClass({
                 p.onChange(option);
             }
 
-            return <div className={ className } key={ option } onMouseDown={ onMouseDown }>
-                { option }
-            </div>;
+            return D.div({ className: className, key: option, onMouseDown: onMouseDown },
+                option
+            );
         }
     },
     componentWillReceiveProps: function() {
@@ -160,6 +165,14 @@ function getInitialState() {
 
 function contains(string, substring) {
     return string.indexOf(substring) !== -1;
+}
+
+function merge(target, source) {
+    for (var key in source) {
+        target[key] = source[key];
+    }
+
+    return target;
 }
 
 function noop() {}
