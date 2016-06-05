@@ -13,11 +13,12 @@
     "url": "git://github.com/Lapple/react-input-datalist.git"
   },
   "license": "MIT",
-  "dependencies": {
-    "react": "^0.14.0"
+  "peerDependencies": {
+    "react": "^15.1.0"
   },
   "devDependencies": {
     "http-server": "^0.7.4",
+    "react-dom": "^15.1.0",
     "watchify": "^2.2.1"
   },
   "keywords": [

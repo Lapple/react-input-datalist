@@ -1,3 +1,4 @@
+var render = require('react-dom').render;
 var React = require('react');
 var D = React.DOM;
 
@@ -39,5 +40,5 @@ var App = React.createClass({
 var app = React.createFactory(App);
 
 document.addEventListener('DOMContentLoaded', function() {
-    React.render(app(), document.getElementById('main'));
+    render(app(), document.getElementById('main'));
 });
